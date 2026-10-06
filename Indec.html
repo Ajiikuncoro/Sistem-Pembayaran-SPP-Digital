@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistem Pembayaran SPP Digital</title>
+
+    <!-- Hubungkan CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HALAMAN LOGIN
+    ========================== -->
+
+    <section id="loginPage" class="login-page">
+
+        <div class="login-card">
+
+            <div class="logo">
+                SPP
+            </div>
+
+            <h1>
+                Sistem Pembayaran SPP Digital
+            </h1>
+
+            <p class="description">
+                Pembayaran SPP lebih mudah, cepat, dan terpusat.
+            </p>
+
+            <form id="loginForm">
+
+                <label for="username">
+                    NIS / Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Masukkan username"
+                    required
+                >
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Masukkan password"
+                    required
+                >
+
+                <label for="role">
+                    Login sebagai
+                </label>
+
+                <select id="role">
+
+                    <option value="wali">
+                        Wali Murid
+                    </option>
+
+                    <option value="siswa">
+                        Siswa
+                    </option>
+
+                    <option value="bendahara">
+                        Bendahara / TU
+                    </option>
+
+                </select>
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Masuk
+                </button>
+
+            </form>
+
+            <div class="demo">
+                Username dan password dapat diisi bebas.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         APLIKASI UTAMA
+    ========================== -->
+
+    <section
+        id="appPage"
+        class="app hidden"
+    >
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="logo-small">
+                    SPP
+                </div>
+
+                <div>
+                    <strong>
+                        SPP Digital
+                    </strong>
+
+                    <small>
+                        Payment System
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div
+                    class="avatar"
+                    id="avatar"
+                >
+                    W
+                </div>
+
+                <div>
+
+                    <strong id="sidebarName">
+                        Wali Murid
+                    </strong>
+
+                    <small id="sidebarRole">
+                        Wali Murid
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <nav id="navigation"></nav>
+
+
+            <button
+                id="logoutBtn"
+                class="logout"
+            >
+                Keluar
+            </button>
+
+        </aside>
+
+
+        <!-- KONTEN UTAMA -->
+
+        <main class="main">
+
+            <header class="header">
+
+                <div>
+
+                    <button
+                        id="mobileMenu"
+                        class="mobile-menu"
+                    >
+                        ☰
+                    </button>
+
+                    <span class="header-small">
+                        SISTEM PEMBAYARAN
+                    </span>
+
+                    <h2 id="pageTitle">
+                        Dashboard
+                    </h2>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <button
+                        class="notification-button"
+                        onclick="showNotifications()"
+                    >
+                        🔔
+
+                        <span id="notificationCount">
+                            2
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="profile-name"
+                        id="topName"
+                    >
+                        Wali Murid
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ISI HALAMAN -->
+
+            <section
+                id="content"
+                class="content"
+            ></section>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================
+         MODAL PEMBAYARAN
+    ========================== -->
+
+    <div
+        id="paymentModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close"
+                onclick="closePayment()"
+            >
+                ×
+            </button>
+
+            <h2>
+                Pembayaran SPP
+            </h2>
+
+            <p id="paymentInfo"></p>
+
+
+            <h3>
+                Pilih Metode Pembayaran
+            </h3>
+
+
+            <div class="payment-method">
+
+                <button
+                    class="method active"
+                    data-method="QRIS"
+                >
+                    QRIS
+                </button>
+
+                <button
+                    class="method"
+                    data-method="E-Wallet"
+                >
+                    E-Wallet
+                </button>
+
+                <button
+                    class="method"
+                    data-method="Virtual Account"
+                >
+                    Virtual Account
+                </button>
+
+            </div>
+
+
+            <div class="payment-box">
+
+                <div class="fake-qr">
+                    ▦
+                </div>
+
+                <strong>
+                    QRIS DEMO
+                </strong>
+
+                <small>
+                    Simulasi pembayaran
+                </small>
+
+            </div>
+
+
+            <button
+                class="btn-primary"
+                onclick="confirmPayment()"
+            >
+                Konfirmasi Pembayaran
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- NOTIFIKASI -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <!-- Hubungkan JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
